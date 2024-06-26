@@ -15,7 +15,8 @@
     <name>prueba</name>
     <description>Demo testing</description>
     <properties>
-        <java.version>17</java.version>
+        <!-- Actualizado para usar Java 1.8 -->
+        <java.version>1.8</java.version>
     </properties>
 
     <!-- Cambio realizado: 'jar' por 'war' -->
@@ -27,7 +28,7 @@
 
     <build>
         <plugins>
-            <!-- Configuración del maven-compiler-plugin para Java 17 -->
+            <!-- Configuración del maven-compiler-plugin para Java 1.8 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -35,7 +36,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <release>${java.version}</release>
+                    <!-- La opción 'release' se elimina porque no es necesaria para Java 1.8 -->
                 </configuration>
             </plugin>
 
