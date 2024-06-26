@@ -92,6 +92,16 @@
                     <useModulePath>false</useModulePath>
                 </configuration>
             </plugin>
+            
+            <!-- Plugin Maven WAR configurado para no requerir web.xml -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
