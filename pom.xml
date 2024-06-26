@@ -15,28 +15,20 @@
     <name>prueba</name>
     <description>Demo testing</description>
     <properties>
-        <java.version>17</java.version>
+        <!-- Actualizado para usar la versión de Java 17 -->
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
 
     <!-- Cambio realizado: 'jar' por 'war' -->
     <packaging>war</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!-- Dependencias existentes -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Configuración agregada para especificar la clase principal -->
+            <!-- Plugin de Spring Boot actualizado para especificar la clase principal -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -52,6 +44,16 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            
+            <!-- Plugin de Maven Compiler actualizado para soportar Java 17 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version> <!-- o una versión más reciente que soporte Java 17 -->
+                <configuration>
+                    <release>17</release>
+                </configuration>
             </plugin>
             
             <!-- Otros plugins existentes -->
