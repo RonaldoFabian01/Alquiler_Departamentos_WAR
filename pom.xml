@@ -15,20 +15,40 @@
     <name>prueba</name>
     <description>Demo testing</description>
     <properties>
-        <!-- Actualizado para usar la versión de Java 17 -->
         <maven.compiler.release>17</maven.compiler.release>
     </properties>
 
-    <!-- Cambio realizado: 'jar' por 'war' -->
     <packaging>war</packaging>
 
     <dependencies>
-        <!-- Dependencias existentes -->
+        <!-- Dependencia de JUnit Jupiter API para pruebas -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version> <!-- Asegúrate de usar la versión más reciente compatible con tu proyecto -->
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Dependencias de Spring Boot Starter Test que incluyen JUnit Jupiter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <!-- Excluir JUnit 4 para evitar conflictos -->
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        <!-- Otras dependencias existentes -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Plugin de Spring Boot actualizado para especificar la clase principal -->
+            <!-- Plugin de Spring Boot para especificar la clase principal -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -39,56 +59,24 @@
                             <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <!-- Asegúrate de reemplazar 'TuClasePrincipal' con el nombre completo de tu clase principal -->
                             <mainClass>pe.edu.upc.renstate.ArrendadorCalificacion</mainClass>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             
-            <!-- Plugin de Maven Compiler actualizado para soportar Java 17 -->
+            <!-- Plugin de Maven Compiler para soportar Java 17 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version> <!-- o una versión más reciente que soporte Java 17 -->
+                <version>3.8.1</version>
                 <configuration>
                     <release>17</release>
                 </configuration>
             </plugin>
             
             <!-- Otros plugins existentes -->
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.3.0.603</version>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
+            <!-- ... -->
         </plugins>
     </build>
 </project>
